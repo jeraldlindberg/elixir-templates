@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    environment:
+      SECRET_COOKIE: "supersecretcookie"
+    deploy:
+      replicas: 3 # Run 3 instances of the application
+    networks:
+      - cluster_net
+
+networks:
+  cluster_net:
+    driver: bridge
